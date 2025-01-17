@@ -9,11 +9,24 @@ def bubble_sort(arr):
     return arr
 
 def main():
+        # изменим программу чтобы она уточняла по убыванию или возрастанию сортировать
     n = int(input("Enter the length of the array: "))
-    arr = [int(input(f"Enter the {i+1} number: ")) for i in range(n)]
 
-    print(f"Initial array: {arr}")
-    print(f"Sorted array: {bubble_sort(arr)}")
+    if n < 2:
+        print("Array is already sorted")
+        return
+    
+    if input("Sort in increasing order? (y/n): ").lower() == 'y':
+        arr = [int(input(f"Enter the {i+1} number: ")) for i in range(n)]
+        print(f"Initial array: {arr}")
+        print(f"Sorted array: {bubble_sort(arr)}")
+    else:
+        arr = [int(input(f"Enter the {i+1} number: ")) for i in range(n)]
+        print(f"Initial array: {arr}")
+        arr = bubble_sort(arr)[::-1]
+        print(f"Sorted array: {arr}")
+   
+
 
 if __name__ == "__main__":
     main()
